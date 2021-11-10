@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 92: expected menuitem
-    if dwi_point == 0:
-    ^
+File "game/script.rpy", line 98: expected statement.
+    dwi_point = 2
+              ^
 
 Ren'Py Version: Ren'Py 7.4.10.2178
-Wed Nov  3 19:41:32 2021
+Wed Nov 10 19:29:47 2021

@@ -6,19 +6,24 @@ define n = Character("Natsuki")
 
 label start:
 
-    scene black
+    scene bg1
+    show sekadi:
+        xalign 1.0
+    show mona:
+        xalign 0.0
+    with fade
     
     "game ini berlatar belakang di {w=1}coolkampus."
 
-    show sekadi:
-        xalign 1.0
+    
 
     s "ur mum gae."
     
-    show mona:
-        xalign 0.0
+    play music "bgm005.ogg" fadein 2
     
     m "ok."
+    
+    play sound "Daylight.ogg" loop
     
     hide mona
     pause 0.5
@@ -26,6 +31,9 @@ label start:
         xalign 0.0
     
     m "Sebebas kalian"
+    
+    stop music fadeout 2
+    stop sound fadeout 2
     
     pause 1
     
@@ -36,6 +44,8 @@ label start:
         "Dwi makan":
             
             $ dwi_point = 1
+            
+            scene cg1 with fade
             
             "Dwi kemudian makan."
             
@@ -58,6 +68,8 @@ label choice1:
     n "Gais hello."
     
     m "hello channel welcome to my gais."
+    
+    scene cg2 with ImageDissolve("tr-clockwipe", 2, ramplen=21)
 
     n "salam dari bijai"
     

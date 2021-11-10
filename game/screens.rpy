@@ -359,7 +359,10 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add "bg2"
+    
+    add "mona":
+        xalign 1.0
 
     ## This empty frame darkens the main menu.
     frame:
@@ -374,10 +377,10 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
+            text "Pinecone UwU":
                 style "main_menu_title"
 
-            text "[config.version]":
+            text "Demo Version":
                 style "main_menu_version"
 
 

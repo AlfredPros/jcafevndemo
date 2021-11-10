@@ -1,40 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 31, in script
-    play music BGM005
-  File "renpy/common/000statements.rpy", line 123, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "game/script.rpy", line 31, in <module>
-    play music BGM005
-NameError: name 'BGM005' is not defined
+  File "game/script.rpy", line 27, in script
+    play music "<from [songdur]>Daylight.ogg"
+  File "renpy/common/000statements.rpy", line 129, in execute_play_music
+    relative_volume=eval(p.get("volume", "1.0")))
+Exception: Parsing audio spec u'<from [songdur]>Daylight.ogg': expected float, got u'[songdur]'..
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 31, in script
-    play music BGM005
+  File "game/script.rpy", line 27, in script
+    play music "<from [songdur]>Daylight.ogg"
   File "renpy/ast.py", line 2015, in execute
     self.call("execute")
   File "renpy/ast.py", line 2003, in call
     return renpy.statements.call(method, parsed, *args, **kwargs)
   File "renpy/statements.py", line 278, in call
     return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 123, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 31, in <module>
-    play music BGM005
-NameError: name 'BGM005' is not defined
+  File "renpy/common/000statements.rpy", line 129, in execute_play_music
+    relative_volume=eval(p.get("volume", "1.0")))
+  File "renpy/audio/music.py", line 127, in play
+    c.enqueue(filenames, loop=loop, synchro_start=synchro_start, fadein=fadein, tight=tight, loop_only=loop_only, relative_volume=relative_volume)
+  File "renpy/audio/audio.py", line 655, in enqueue
+    filename, _, _ = self.split_filename(filename, False)
+  File "renpy/audio/audio.py", line 388, in split_filename
+    start = expect_float()
+  File "renpy/audio/audio.py", line 354, in expect_float
+    raise exception("expected float, got {!r}.".format(v))
+Exception: Parsing audio spec u'<from [songdur]>Daylight.ogg': expected float, got u'[songdur]'..
 
 Windows-10-10.0.19041
 Ren'Py 7.4.10.2178
 hello_world 1.0
-Wed Oct 27 20:23:58 2021
+Wed Nov 10 19:36:24 2021

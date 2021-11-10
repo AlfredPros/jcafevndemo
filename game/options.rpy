@@ -79,7 +79,7 @@ define config.exit_transition = dissolve
 
 ## Between screens of the game menu.
 
-define config.intra_transition = dissolve
+define config.intra_transition = ImageDissolve("tr-clockwipe", 2, ramplen=123)
 
 
 ## A transition that is used after a game has been loaded.
