@@ -3,27 +3,30 @@ define s = Character("Sekadi")
 define m = Character("Monika")
 define n = Character("Natsuki")
 
+image monaflip = im.Flip("mona.png", horizontal=True)
+image monadark = im.MatrixColor("mona.png", im.matrix.brightness(-0.5))
 
 label start:
 
     scene bg1
+    
+    "game ini berlatar belakang di {w=1}coolkampus.{nw}"
+    
     show sekadi:
-        xalign 1.0
-    show mona:
         xalign 0.0
-    with fade
+    show mona:
+        xalign 1.0 zoom 0.75
     
-    "game ini berlatar belakang di {w=1}coolkampus."
-
+    m "Hello"
     
+    show monadark as mona with Dissolve(0.1)
 
     s "ur mum gae."
     
-    play music "bgm005.ogg" fadein 2
+    show mona as mona with Dissolve(0.1)
     
     m "ok."
     
-    play sound "Daylight.ogg" loop
     
     hide mona
     pause 0.5
