@@ -6,8 +6,87 @@ define n = Character("Natsuki")
 image monaflip = im.Flip("mona.png", horizontal=True)
 image monadark = im.MatrixColor("mona.png", im.matrix.brightness(-0.5))
 
-label start:
 
+
+image pinedark = im.MatrixColor("bpine.png", im.matrix.brightness(-0.2))
+image suzudark = im.MatrixColor("bsuzu.png", im.matrix.brightness(-0.2))
+
+label splashscreen:
+    "go home go bed"
+    
+    return
+    
+
+screen intensechoice():
+    modal True
+    
+    imagebutton:
+        align(0.2, 0.3)
+        idle "bpine"
+        hover "pinedark"
+        
+        action Jump("pinecone")
+        
+    imagebutton:
+        align(0.8, 0.3)
+        idle "bsuzu"
+        hover "suzudark"
+        
+        action Jump("suzuran")
+        
+    textbutton "play ikan goreng":
+        align(0.5, 0.5)
+        
+        hovered Play("sound", "se002.ogg")
+        action Play("music", "bgm005.ogg")
+
+
+label start:
+    
+    window show
+    "Choose! Pinecone or Suzuran!"
+    window hide
+    
+    show screen intensechoice
+    
+    pause
+    
+    return
+
+label pinecone:
+    
+    hide screen intensechoice
+    
+    show bpine:
+        zoom 2.0 align(0.5, 1.0)
+    
+    "You chose to be with Pinecone!"
+    
+    return
+    
+label suzuran:
+    
+    hide screen intensechoice
+    
+    show bsuzu:
+        zoom 2.0 align(0.5, 1.0)
+    
+    "You chose to be with Suzuran!"
+    
+    return
+
+
+
+
+
+
+
+
+
+
+
+label start_gaktau:
+    
     scene bg1
     
     "game ini berlatar belakang di {w=1}coolkampus.{nw}"

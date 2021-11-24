@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 98: expected statement.
-    dwi_point = 2
+File "game/script.rpy", line 38: expected statement.
+    modal True
               ^
 
 Ren'Py Version: Ren'Py 7.4.10.2178
-Wed Nov 10 19:29:47 2021
+Wed Nov 24 19:47:08 2021
