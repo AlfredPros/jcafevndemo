@@ -5,6 +5,36 @@
 init offset = -1
 
 
+
+################################################################################
+## Custom Screens
+################################################################################
+
+screen intensechoice():
+    modal True
+    
+    imagebutton:
+        align(0.2, 0.3)
+        idle "bpine"
+        hover "pinedark"
+        
+        action Jump("pinecone")
+        
+    imagebutton:
+        align(0.8, 0.3)
+        idle "bsuzu"
+        hover "suzudark"
+        
+        action Jump("suzuran")
+        
+    textbutton "play ikan goreng":
+        align(0.5, 0.5)
+        
+        hovered Play("sound", "se002.ogg")
+        action Play("music", "bgm005.ogg")
+        
+        
+
 ################################################################################
 ## Styles
 ################################################################################

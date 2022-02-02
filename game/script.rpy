@@ -5,53 +5,45 @@ define n = Character("Natsuki")
 
 image monaflip = im.Flip("mona.png", horizontal=True)
 image monadark = im.MatrixColor("mona.png", im.matrix.brightness(-0.5))
-
-
-
 image pinedark = im.MatrixColor("bpine.png", im.matrix.brightness(-0.2))
 image suzudark = im.MatrixColor("bsuzu.png", im.matrix.brightness(-0.2))
 
-label splashscreen:
-    "go home go bed"
-    
-    return
-    
 
-screen intensechoice():
-    modal True
-    
-    imagebutton:
-        align(0.2, 0.3)
-        idle "bpine"
-        hover "pinedark"
-        
-        action Jump("pinecone")
-        
-    imagebutton:
-        align(0.8, 0.3)
-        idle "bsuzu"
-        hover "suzudark"
-        
-        action Jump("suzuran")
-        
-    textbutton "play ikan goreng":
-        align(0.5, 0.5)
-        
-        hovered Play("sound", "se002.ogg")
-        action Play("music", "bgm005.ogg")
+
 
 
 label start:
     
-    window show
-    "Choose! Pinecone or Suzuran!"
-    window hide
+    jump atl
     
-    show screen intensechoice
+label atl:
     
-    pause
+    "Hi everyone!"
+    
+    "Ok. Cool."
     
     return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 label pinecone:
     
@@ -74,14 +66,6 @@ label suzuran:
     "You chose to be with Suzuran!"
     
     return
-
-
-
-
-
-
-
-
 
 
 
