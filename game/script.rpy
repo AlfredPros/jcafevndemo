@@ -29,12 +29,15 @@ transform mouth_move:
     align(0.572, 0.425) zoom 0.6 rotate -5 yzoom 0.6 xzoom 0.7
     block:
         parallel:  # y
-            ease 1.0 yzoom 0.25
-            ease 1.0 yzoom 0.6
+            ease_quad 1.0 yzoom 0.25
+            ease_quad 1.0 yzoom 0.6
         parallel:  # x
-            ease 1.0 xzoom 0.5
-            ease 1.0 xzoom 0.7
+            ease_quad 1.0 xzoom 0.5
+            ease_quad 1.0 xzoom 0.7
         repeat
+
+
+
 
 
 label start:
@@ -43,19 +46,20 @@ label start:
     
 label atl:
     
+    "OwO!"
+    
+    "Input text here."
+    
+    "Input text here volume 2."
+    
+    
+    
+    
     show pc_b as pinecone at awal_posisi(0.5)
     
     "Hi everyone!"
     
-    show mouth:
-        xalign 0.5 yalign 0.5 zoom 1.66
-        easeout 1.0 xalign 1.0
-        parallel:
-            ease 1.0 zoom 0.0
-        parallel:
-            ease 0.0 yalign 0.0
-            
-        
+    show mouth at mouth_move
 
     p "I'm out."
     
@@ -82,7 +86,6 @@ label atl:
             ease 1.0 xalign 1.0
         choice:
             pass
-    
     
     "random 3"
     
