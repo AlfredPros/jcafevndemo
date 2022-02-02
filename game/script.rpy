@@ -36,7 +36,53 @@ transform mouth_move:
             ease_quad 1.0 xzoom 0.7
         repeat
 
+image ripa:
+    "ripa_a"
+    pause 0.1
+    "ripa_b"
+    pause 0.1
+    "ripa_c"
+    pause 0.1
+    "ripa_d"
+    pause 0.1
+    "ripa_e"
+    pause 0.1
+    choice:
+        pass
+    choice:
+        pass
+    choice:
+        pass
+    choice:
+        "ripab_a"
+        pause 0.1
+        "ripab_b"
+        pause 0.1
+    repeat
 
+image ripb:
+    "ripb_a"
+    pause 0.1
+    "ripb_b"
+    pause 0.1
+    "ripb_c"
+    pause 0.1
+    "ripb_d"
+    pause 0.1
+    "ripb_e"
+    pause 0.1
+    choice:
+        pass
+    choice:
+        pass
+    choice:
+        pass
+    choice:
+        "ripbb_a"
+        pause 0.1
+        "ripbb_b"
+        pause 0.1
+    repeat
 
 
 
@@ -46,11 +92,17 @@ label start:
     
 label atl:
     
-    "OwO!"
+    scene ripa with dissolve
     
-    "Input text here."
+    pause
     
-    "Input text here volume 2."
+    scene ripb with dissolve
+    
+    pause
+    
+    scene ripa with dissolve
+    
+    pause
     
     
     
