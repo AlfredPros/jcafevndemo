@@ -2,6 +2,7 @@
 define s = Character("Sekadi")
 define m = Character("Monika")
 define n = Character("Natsuki")
+define p = Character("Pinecone")
 
 image monaflip = im.Flip("mona.png", horizontal=True)
 image monadark = im.MatrixColor("mona.png", im.matrix.brightness(-0.5))
@@ -9,7 +10,31 @@ image pinedark = im.MatrixColor("bpine.png", im.matrix.brightness(-0.2))
 image suzudark = im.MatrixColor("bsuzu.png", im.matrix.brightness(-0.2))
 
 
-
+transform awal_posisi(y_start):
+    subpixel True
+    xalign 0.5 yalign y_start alpha 1.0 zoom 0.95 blur 0.0
+    ease 0.5 zoom 1.0
+    
+transform char_show(x_start=0.5):
+    subpixel True
+    xalign (x_start-0.05) alpha 0.0
+    ease 0.5 xalign x_start alpha 1.0
+    
+transform screen_fade:
+    alpha 0.0
+    ease 1.0 alpha 1.0
+    
+transform mouth_move:
+    subpixel True
+    align(0.572, 0.425) zoom 0.6 rotate -5 yzoom 0.6 xzoom 0.7
+    block:
+        parallel:  # y
+            ease 1.0 yzoom 0.25
+            ease 1.0 yzoom 0.6
+        parallel:  # x
+            ease 1.0 xzoom 0.5
+            ease 1.0 xzoom 0.7
+        repeat
 
 
 label start:
@@ -18,9 +43,50 @@ label start:
     
 label atl:
     
+    show pc_b as pinecone at awal_posisi(0.5)
+    
     "Hi everyone!"
     
-    "Ok. Cool."
+    show mouth:
+        xalign 0.5 yalign 0.5 zoom 1.66
+        easeout 1.0 xalign 1.0
+        parallel:
+            ease 1.0 zoom 0.0
+        parallel:
+            ease 0.0 yalign 0.0
+            
+        
+
+    p "I'm out."
+    
+    hide pinecone
+    hide mouth
+    
+    show lisa_a at awal_posisi(0.0)
+    
+    "random 1"
+    
+    hide lisa_a
+    show bpine at char_show
+    
+    "random 2"
+    
+    show bpine as bpine:
+        choice:
+            ease 1.0 xalign 0.0
+        choice:
+            ease 1.0 xalign 1.0
+        choice:
+            ease 1.0 xalign 1.0
+        choice:
+            ease 1.0 xalign 1.0
+        choice:
+            pass
+    
+    
+    "random 3"
+    
+    "random 4"
     
     return
 

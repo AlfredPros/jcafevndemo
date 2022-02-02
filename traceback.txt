@@ -1,60 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 38, in script
-    pause
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "renpy/common/00action_control.rpy", line 126, in __call__
-    renpy.show_screen(self.screen, *self.args, **self.kwargs)
-Exception: Screen bsuzu.png is not known.
-
+  File "game/script.rpy", line 60, in script
+    show blapp at char_show
+Exception: Cannot compile ATL Transform at game/script.rpy:19, as it's missing positional parameter x_start.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 38, in script
-    pause
-  File "renpy/ast.py", line 2015, in execute
-    self.call("execute")
-  File "renpy/ast.py", line 2003, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "renpy/statements.py", line 278, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "renpy/exports.py", line 1561, in pause
-    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
-  File "renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "renpy/display/core.py", line 3315, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "renpy/display/core.py", line 4155, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "renpy/display/layout.py", line 1100, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "renpy/display/layout.py", line 1100, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "renpy/display/layout.py", line 1100, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "renpy/display/screen.py", line 727, in event
-    rv = self.child.event(ev, x, y, st)
-  File "renpy/display/layout.py", line 1100, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "renpy/display/behavior.py", line 979, in event
-    return handle_click(self.clicked)
-  File "renpy/display/behavior.py", line 914, in handle_click
-    rv = run(action)
-  File "renpy/display/behavior.py", line 329, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_control.rpy", line 126, in __call__
-    renpy.show_screen(self.screen, *self.args, **self.kwargs)
-  File "renpy/display/screen.py", line 1131, in show_screen
-    raise Exception("Screen %s is not known.\n" % (name[0],))
-Exception: Screen bsuzu.png is not known.
-
+  File "game/script.rpy", line 60, in script
+    show blapp at char_show
+  File "renpy/ast.py", line 1197, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "renpy/ast.py", line 1167, in show_imspec
+    atl=atl)
+  File "renpy/exports.py", line 768, in show
+    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
+  File "renpy/display/core.py", line 1147, in add
+    thing.visit_all(lambda d : None)
+  File "renpy/display/core.py", line 558, in visit_all
+    for d in self.visit():
+  File "renpy/atl.py", line 603, in visit
+    block = self.compile()
+  File "renpy/atl.py", line 498, in compile
+    self.parameters.positional[0],
+Exception: Cannot compile ATL Transform at game/script.rpy:19, as it's missing positional parameter x_start.
 
 Windows-10-10.0.19041
-Ren'Py 7.4.10.2178
+Ren'Py 7.4.11.2266
 hello_world 1.0
-Wed Nov 24 19:07:19 2021
+Wed Feb  2 20:31:24 2022

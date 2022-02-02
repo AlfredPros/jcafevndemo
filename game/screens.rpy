@@ -391,7 +391,7 @@ screen main_menu():
 
     add "bg2"
     
-    add "mona":
+    add "mona" at screen_fade:
         xalign 1.0
 
     ## This empty frame darkens the main menu.
