@@ -9,33 +9,6 @@ image monadark = im.MatrixColor("mona.png", im.matrix.brightness(-0.5))
 image pinedark = im.MatrixColor("bpine.png", im.matrix.brightness(-0.2))
 image suzudark = im.MatrixColor("bsuzu.png", im.matrix.brightness(-0.2))
 
-
-transform awal_posisi(y_start):
-    subpixel True
-    xalign 0.5 yalign y_start alpha 1.0 zoom 0.95 blur 0.0
-    ease 0.5 zoom 1.0
-    
-transform char_show(x_start=0.5):
-    subpixel True
-    xalign (x_start-0.05) alpha 0.0
-    ease 0.5 xalign x_start alpha 1.0
-    
-transform screen_fade:
-    alpha 0.0
-    ease 1.0 alpha 1.0
-    
-transform mouth_move:
-    subpixel True
-    align(0.572, 0.425) zoom 0.6 rotate -5 yzoom 0.6 xzoom 0.7
-    block:
-        parallel:  # y
-            ease_quad 1.0 yzoom 0.25
-            ease_quad 1.0 yzoom 0.6
-        parallel:  # x
-            ease_quad 1.0 xzoom 0.5
-            ease_quad 1.0 xzoom 0.7
-        repeat
-
 image ripa:
     "ripa_a"
     pause 0.1
@@ -85,31 +58,102 @@ image ripb:
     repeat
 
 
+transform awal_posisi(y_start):
+    subpixel True
+    xalign 0.5 yalign y_start alpha 1.0 zoom 0.95 blur 0.0
+    ease 0.5 zoom 1.0
+    
+transform char_show(x_start=0.5):
+    subpixel True
+    xalign (x_start-0.05) alpha 0.0
+    ease 0.5 xalign x_start alpha 1.0
+    
+transform screen_fade:
+    alpha 0.0
+    ease 1.0 alpha 1.0
+    
+transform mouth_move:
+    subpixel True
+    align(0.572, 0.425) zoom 0.6 rotate -5 yzoom 0.6 xzoom 0.7
+    block:
+        parallel:  # y
+            ease_quad 1.0 yzoom 0.25
+            ease_quad 1.0 yzoom 0.6
+        parallel:  # x
+            ease_quad 1.0 xzoom 0.5
+            ease_quad 1.0 xzoom 0.7
+        repeat
+
 
 label start:
     
-    jump atl
+    jump vc
+    
+label vc:
+    
+    "hi"
+    
+    play music "Daylight.ogg"
+    
+    "Daylight ogg"
+    
+    "ok, next."
+    
+    play voice "SayoText.ogg" loop
+    
+    "Speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak speak s{nw}"
+    
+    play voice ["NatText.ogg"]*6
+    
+    "no no no no no no"
+    
+    stop voice
+    stop music
+    
+    "ok, stop"
+    
+    
+    return
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     
 label atl:
     
-    scene ripa with dissolve
-    
-    pause
-    
-    scene ripb with dissolve
-    
-    pause
-    
-    scene ripa with dissolve
-    
-    pause
-    
-    
-    
+    window show
+    "OwO"
     
     show pc_b as pinecone at awal_posisi(0.5)
-    
+        
+    window hide
     "Hi everyone!"
+    window show
     
     show mouth at mouth_move
 
@@ -144,25 +188,6 @@ label atl:
     "random 4"
     
     return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

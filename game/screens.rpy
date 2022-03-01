@@ -203,7 +203,7 @@ style say_dialogue:
 
 screen input(prompt):
     style_prefix "input"
-
+    
     window:
 
         vbox:
@@ -236,6 +236,8 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
+    
+    add "bsaga"
 
     vbox:
         yalign 0.5
@@ -407,10 +409,13 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "Pinecone UwU":
-                style "main_menu_title"
+            text "Pinecone OwO":
+                size 50
+                color "#fff"
+                
+                #style "main_menu_title"
 
-            text "Demo Version":
+            text "Terserah Version":
                 style "main_menu_version"
 
 
@@ -657,7 +662,7 @@ screen file_slots(title):
                     value page_name_value
 
             ## The grid of file slots.
-            grid gui.file_slot_cols gui.file_slot_rows:
+            grid 3 2:
                 style_prefix "slot"
 
                 xalign 0.5
@@ -665,7 +670,7 @@ screen file_slots(title):
 
                 spacing gui.slot_spacing
 
-                for i in range(gui.file_slot_cols * gui.file_slot_rows):
+                for i in range(3 * 2):
 
                     $ slot = i + 1
 
@@ -937,7 +942,6 @@ screen history():
 
                     label h.who:
                         style "history_name"
-                        substitute False
 
                         ## Take the color of the who text from the Character, if
                         ## set.
@@ -945,8 +949,7 @@ screen history():
                             text_color h.who_args["color"]
 
                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                text what:
-                    substitute False
+                text what
 
         if not _history_list:
             label _("The dialogue history is empty.")
