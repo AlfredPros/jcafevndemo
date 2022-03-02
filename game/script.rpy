@@ -85,9 +85,60 @@ transform mouth_move:
         repeat
 
 
+init python:
+    renpy.music.register_channel("ambient", mixer="sound", loop=True)
+
+
 label start:
     
-    jump vc
+    jump voic
+    
+label voic:
+    
+    "your mom"
+    
+    play ambient ["bgm005.ogg", "Daylight.ogg", "MoniTalk.ogg"]
+    
+    "emosonal demeg"
+    
+    "Noice."
+    
+    play ambient "Daylight.ogg"
+    
+    "Kokodayo"
+    
+    play ambient "bgm005.ogg"
+    
+    "UmU"
+    
+    "Super Idol"
+    
+    "gak tau gua"
+    
+    return
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 label vc:
     
