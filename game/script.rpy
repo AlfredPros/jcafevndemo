@@ -89,10 +89,69 @@ init python:
     renpy.music.register_channel("ambient", mixer="sound", loop=True)
 
 
+
+default ikan = False
+
+screen touche():
+    modal True
+    
+    hbox:
+        textbutton "Wine" action Play("music", "actionsong.mp3")
+        add "blapp"
+        text "Halo atau apa gitu"
+    
+    # Hover toggle changes variable
+    imagebutton:
+        align(0.5, 1.0)
+        idle "bpine"
+        hover "bsuzu"
+        
+        hovered ToggleVariable("ikan")
+        
+        action Play("music", "bgm005.ogg")
+
+        
+    if ikan == True:
+        add "perlica"
+
+
+image siji = im.Crop("cg1.png", (0,0, 400, 400))
+
+screen pinecone():
+    
+    frame:
+        area(500, 200, 400, 400)
+        background "siji"
+        
+        viewport:
+            draggable True
+            mousewheel True
+            scrollbars "horizontal", "vertical"
+            
+            vbox:
+                text "Perlica UwU":
+                    color "#fff"
+                add "perlica"
+                text "Pinecone OwO":
+                    color "#fff"
+                add "bpine"
     
 label start:
     
     jump viewport_label
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
