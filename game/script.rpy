@@ -89,9 +89,74 @@ init python:
     renpy.music.register_channel("ambient", mixer="sound", loop=True)
 
 
+    
 label start:
     
-    jump voic
+    jump viewport_label
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+label viewport_label:
+    
+    "test"
+    
+    show screen test_drag
+    
+    window hide
+    pause
+    window show
+    
+    "ok"
+    
+    return
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 label voic:
     
@@ -116,28 +181,6 @@ label voic:
     "gak tau gua"
     
     return
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 label vc:
@@ -167,33 +210,6 @@ label vc:
     return
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     
 label atl:
     

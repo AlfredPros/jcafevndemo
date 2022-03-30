@@ -10,6 +10,64 @@ init offset = -1
 ## Custom Screens
 ################################################################################
 
+default show_perica = True
+
+transform perica_anim:
+    alpha 0.0
+    ease 0.5 alpha 1.0
+    
+    on show:
+        ease 0.5 alpha 1.0
+    
+    on hide:
+        ease 0.5 alpha 0.0
+
+style asd:
+    unscrollable "hide"
+
+screen test_drag():
+    
+    drag:
+        drag_name "Perlica"
+        drag_offscreen True
+        xalign 0.1 yalign 0.5
+        
+        vbox:
+            xalign 0.1 yalign 0.5
+            text "With drag + showif":
+                xalign 0.5 color "#fff"
+            showif show_perica:
+                add "perlica" at perica_anim:
+                    zoom 0.75
+    
+    side "c r":
+        area (650, 75, 500, 500)
+        
+        viewport id "viewport_drag":
+            draggable True
+            xalign 0.9 yalign 0.5
+            
+            # Mouse & Scrollbar
+            mousewheel True
+            #scrollbars "vertical"  # Cannot be hidden when unscrollable, so we use 'side' code
+            
+            vbox:
+                style "asd"
+                xalign 0.9 yalign 0.5
+                text "With viewport + if":
+                    xalign 0.5 color "#fff"
+                if show_perica:
+                    add "perlica" at perica_anim:
+                        zoom 0.75
+        
+        vbar value YScrollValue("viewport_drag") unscrollable "hide"
+    
+    textbutton "Toggle Show Perica":
+        text_hover_color "#ccc"
+        text_selected_color "#eee"
+        align(0.5, 0.95)
+        action ToggleVariable("show_perica")
+
 screen intensechoice():
     modal True
     
