@@ -135,10 +135,135 @@ screen pinecone():
                 text "Pinecone OwO":
                     color "#fff"
                 add "bpine"
+
+
+image bsaga = im.Blur("bsaga.png", 1)
+
+image trasnform:
+    "bsaga.png"
+    pause 1.0
+    "blapp.png"
+    pause 1.0
+    repeat
     
+image blappsaga:
+    "bsaga"
+    pause 0.5
+    "blapp"
+    pause 0.5
+    repeat
+
+transform rotation:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 0
+    linear 10 rotate 360
+    repeat
+    
+screen test:
+    add "bsaga.png" at rotation
+
+image ripa:
+    "ripa_a"
+    pause 0.1
+    "ripa_b"
+    pause 0.1
+    "ripa_c"
+    pause 0.1
+    "ripa_d"
+    pause 0.1
+    "ripa_e"
+    pause 0.1
+    choice:
+        "ripa_a"
+        pause 0.1
+        "ripa_b"
+        pause 0.1
+        "ripa_c"
+        pause 0.1
+        "ripa_d"
+        pause 0.1
+        "ripa_e"
+        pause 0.1
+    choice:
+        "ripab_a"
+        pause 0.1
+        "ripab_b"
+        pause 0.1
+    repeat
+    
+image ripb:
+    "ripb_a"
+    pause 0.1
+    "ripb_b"
+    pause 0.1
+    "ripb_c"
+    pause 0.1
+    "ripb_d"
+    pause 0.1
+    "ripb_e"
+    pause 0.1
+    choice:
+        "ripb_a"
+        pause 0.1
+        "ripb_b"
+        pause 0.1
+        "ripb_c"
+        pause 0.1
+        "ripb_d"
+        pause 0.1
+        "ripb_e"
+        pause 0.1
+    choice:
+        "ripbb_a"
+        pause 0.1
+        "ripbb_b"
+        pause 0.1
+    repeat
+    
+image rip:
+    # Do normal
+    choice:
+        choice:
+            "ripa_a"
+            pause 0.1
+            "ripa_b"
+            pause 0.1
+            "ripa_c"
+            pause 0.1
+            "ripa_d"
+            pause 0.1
+            "ripa_e"
+            pause 0.1
+        choice:
+            "ripb_a"
+            pause 0.1
+            "ripb_b"
+            pause 0.1
+            "ripb_c"
+            pause 0.1
+            "ripb_d"
+            pause 0.1
+            "ripb_e"
+            pause 0.1
+    # Do blinking
+    choice:
+        choice:
+            "ripab_a"
+            pause 0.1
+            "ripab_b"
+            pause 0.1
+        
+        choice:
+            "ripbb_a"
+            pause 0.1
+            "ripbb_b"
+            pause 0.1
+    repeat
+
+
+
 label start:
     
-    jump viewport_label
     
     
     
@@ -162,6 +287,221 @@ label start:
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+label matrixcol:
+    
+    scene ripa 
+    
+    pause
+    
+    scene ripb
+    
+    pause
+    
+    scene rip
+    
+    pause
+    
+    
+    show perlicute as perlica:
+        xalign 0.5
+        matrixcolor InvertMatrix(value=1.0)
+        block:
+            ease 1.0 matrixcolor InvertMatrix(value=0.0)
+            ease 1.0 matrixcolor InvertMatrix(value=1.0)
+            repeat
+    
+    show perlicute as kak_dwi:
+        xalign 0.5 alpha 0.9
+        blend "add"
+        matrixcolor TintMatrix("#f00")
+        block:
+            ease 1.0 matrixcolor TintMatrix("#00f")
+            ease 1.0 matrixcolor TintMatrix("#f00")
+            repeat
+    
+    
+    pause
+    
+    show bsaga:
+        xalign 0.0 yalign 0.5 alpha 0
+        
+        easein 2.0 xalign 0.8 alpha 1
+        
+    show screen test
+    
+    show trasnform
+    
+    show blappsaga
+    
+    pause
+    hide bsaga
+    hide trasnform
+    hide blappsaga
+    hide screen test
+    
+    show mouth :
+        xalign 0.5 yalign 0.5
+        parallel:
+            block:
+                easein 0.7 zoom 0.5
+                ease 1.0 zoom 0.56
+                repeat
+                
+        parallel:
+             block:
+                ease 2.0 xalign 0.9
+                ease 1.0 yalign 0.0
+                ease 2.0 xalign 0.5
+                ease 1.0 yalign 0.5
+                repeat
+    
+    pause
+    hide mouth
+    
+    show blapp at rotation
+    
+    pause
+    
+    return
+    
+    
+    
+label rgb:
+    
+    "a"
+    window hide Dissolve(0.2)
+    
+    
+    # Back
+    show perlicute as perliAB:  # RGB
+        subpixel True
+        align(0.6, 1.0) alpha 0.2
+        matrixcolor TintMatrix("fff")
+        
+        parallel:
+            block:
+                linear 1.0 matrixcolor TintMatrix("f00")
+                linear 1.0 matrixcolor TintMatrix("00f")
+                linear 1.0 matrixcolor TintMatrix("0f0")
+                repeat
+        parallel:
+            block:
+                ease 2.0 xalign 0.65
+                ease 2.0 xalign 0.6
+                repeat
+                
+    show perlicute as perliBB:  # Brightness
+        subpixel True
+        align(0.6, 1.0) alpha 0.2
+        blend "add"
+        matrixcolor BrightnessMatrix(-0.85)
+        
+        parallel:
+            pause 1.32
+            block:
+                ease_quad 1.0 matrixcolor BrightnessMatrix(-0.55)
+                ease_quad 1.0 matrixcolor BrightnessMatrix(-0.85)
+                repeat
+        parallel:
+            block:
+                ease 2.0 xalign 0.65
+                ease 2.0 xalign 0.6
+                repeat
+    
+    # Middle
+    show perlicute as perliAA:  # RGB
+        subpixel True
+        align(0.55, 1.0) alpha 0.6
+        matrixcolor TintMatrix("fff")
+        
+        parallel:
+            block:
+                linear 1.0 matrixcolor TintMatrix("0f0")
+                linear 1.0 matrixcolor TintMatrix("f00")
+                linear 1.0 matrixcolor TintMatrix("00f")
+                repeat
+        parallel:
+            block:
+                ease 2.0 xalign 0.575
+                ease 2.0 xalign 0.55
+                repeat
+                
+    show perlicute as perliBA:  # Brightness
+        subpixel True
+        align(0.55, 1.0) alpha 0.6
+        blend "add"
+        matrixcolor BrightnessMatrix(-0.75)
+        
+        parallel:
+            pause 0.66
+            block:
+                ease_quad 1.0 matrixcolor BrightnessMatrix(-0.5)
+                ease_quad 1.0 matrixcolor BrightnessMatrix(-0.75)
+                repeat
+        parallel:
+            block:
+                ease 2.0 xalign 0.575
+                ease 2.0 xalign 0.55
+                repeat
+    
+    # Front
+    show perlicute as perliA:  # RGB
+        align(0.5, 1.0)
+        matrixcolor TintMatrix("fff")
+        
+        block:
+            linear 1.0 matrixcolor TintMatrix("00f")
+            linear 1.0 matrixcolor TintMatrix("0f0")
+            linear 1.0 matrixcolor TintMatrix("f00")
+            repeat
+    
+    show perlicute as perliB:  # Brightness
+        align(0.5, 1.0)
+        blend "add"
+        matrixcolor BrightnessMatrix(-0.5)
+        
+        block:
+            ease_quad 1.0 matrixcolor BrightnessMatrix(-0.4)
+            ease_quad 1.0 matrixcolor BrightnessMatrix(-0.5)
+            repeat
+    with dissolve
+    
+    
+    pause
+    window show Dissolve(0.2)
+    
+    "b"
+    
+    return
     
     
     
@@ -179,43 +519,7 @@ label viewport_label:
     
     return
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 label voic:
     
