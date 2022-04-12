@@ -264,6 +264,15 @@ image rip:
 
 label start:
     
+    pause
+    
+    show screen ctb
+    
+    pause
+    
+    hide screen ctb
+    
+    pause
     
     
     

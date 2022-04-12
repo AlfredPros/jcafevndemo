@@ -10,6 +10,118 @@ init offset = -1
 ## Custom Screens
 ################################################################################
 
+default position = 2  # 1: left, 2: mid, 3: right
+default health = 5
+
+transform down:
+    yalign 0.0
+    linear 1.0 yalign 1.0
+
+screen fruitLeft():
+    
+    add "bun" at down:
+        xalign 0.25
+    
+    timer 0.5 action If(position == 1, true=Hide("fruitLeft"), false=SetVariable("health", health-1))
+    timer 1.0 action Hide("fruitLeft")
+    
+screen fruitMid():
+    
+    add "bun" at down:
+        xalign 0.5
+    
+    timer 0.5 action If(position == 2, true=Hide("fruitMid"), false=SetVariable("health", health-1))
+    timer 1.0 action Hide("fruitMid")
+    
+screen fruitRight():
+    
+    add "bun" at down:
+        xalign 0.75
+    
+    timer 0.5 action If(position == 3, true=Hide("fruitRight"), false=SetVariable("health", health-1))
+    timer 1.0 action Hide("fruitRight")
+
+screen ctb():
+    
+    modal True
+    
+    if position == 2:
+        add "bpine_ctb":
+            yalign 1.0 xalign 0.5 zoom 0.8
+    elif position == 1:
+        add "bpine_ctb":
+            yalign 1.0 xalign 0.2 zoom 0.8
+    elif position == 3:
+        add "bpine_ctb":
+            yalign 1.0 xalign 0.8 zoom 0.8
+            
+    text "Health = [health]":
+        xalign 0.75 yalign 0.0
+        color "#fff"
+    
+    if health == 0:
+        text "{b}You died.{/b}":
+            color "#fff"
+            size 50
+            align(0.5, 0.5)
+            
+        timer 4.0 action Hide("ctb")
+        
+    else:
+        if position > 1:
+            textbutton "Left":
+                yalign 0.0 xalign 0.45
+                action SetVariable("position", position - 1)
+                
+            button:
+                keysym "K_LEFT"
+                action SetVariable("position", position - 1)
+        
+        if position < 3:
+            textbutton "Right":
+                yalign 0.0 xalign 0.55
+                action SetVariable("position", position + 1)
+                
+            button:
+                keysym "K_RIGHT"
+                action SetVariable("position", position + 1)
+        
+        timer 2.0 action Show("fruitLeft")
+        timer 3.0 action Show("fruitMid")
+        timer 4.0 action Show("fruitRight")
+        timer 5.0 action Show("fruitLeft")
+        timer 6.0 action Show("fruitLeft")
+        timer 7.0 action Show("fruitRight")
+        timer 8.0 action Show("fruitMid")
+        timer 9.0 action Show("fruitLeft")
+        timer 10.0 action Show("fruitRight")
+    
+        timer 12.0 action Hide("ctb")
+
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 default show_perica = True
 
 transform perica_anim:
