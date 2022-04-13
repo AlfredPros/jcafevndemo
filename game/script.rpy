@@ -261,6 +261,26 @@ image rip:
     repeat
 
 
+screen blender():
+    tag idk
+    modal True
+    
+    textbutton "{size=50}Do something{/size}":
+        xalign 0.5 yalign 0.0
+        action Screenshot()
+        
+    textbutton "{size=50}STOPU{/size}":
+        xalign 0.5 yalign 0.15
+        action FileSave("TrueWay", confirm=False, page=7)
+        
+    timer 4.0 action Screenshot()
+    timer 2.4 action Screenshot()
+
+label idk:
+    
+    "hi"
+
+define pov = Character("[povname]")
 
 label start:
     
@@ -270,9 +290,22 @@ label start:
     
     pause
     
-    hide screen ctb
+    # 10/10 implementation of text input
+    python:
+        povname = renpy.input("What is your name?", length=32)
+        povname = povname.strip()
+
+        if not povname:
+            povname = "Pat Smith"
+             
+        if "rick" in povname:
+            renpy.run(OpenURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
+
+    pov "My name is [povname]!"
     
-    pause
+    
+    
+    return
     
     
     
