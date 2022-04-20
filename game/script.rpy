@@ -282,7 +282,78 @@ label idk:
 
 define pov = Character("[povname]")
 
+
+default x_pos = 0
+default y = 0
+screen mov():
+    python:
+        if x_pos < 720:
+            x_pos += 3
+        
+    add "pc_b":
+        xpos x_pos yalign 1.0 zoom 0.75
+    
+    timer 0.03 action renpy.restart_interaction repeat True
+        
+
 label start:
+
+    pause
+    
+    show screen mov
+    
+    pause
+    
+    hide screen mov
+    
+    pause
+    
+    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+label ctb_stuffs:
     
     pause
     
@@ -309,55 +380,6 @@ label start:
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
 label matrixcol:
     
     scene ripa 
