@@ -284,7 +284,6 @@ define pov = Character("[povname]")
 
 
 default x_pos = 0
-default y = 0
 screen mov():
     python:
         if x_pos < 720:
@@ -296,21 +295,94 @@ screen mov():
     timer 0.03 action renpy.restart_interaction repeat True
         
 
+
+
+
+# Without
+#transform down:
+#    subpixel True
+#    linear 2.0 xpos 720
+    
+screen apaya():
+    add "mouth":
+        zoom 1.5 xpos x_pos
+    
+    text "x_pos = [x_pos]":
+        xalign 0.0 yalign 0.5
+        color "#fff"
+    
+    if x_pos < 720:
+        timer 0.01 repeat True action SetVariable('x_pos', x_pos+2)
+        
+
+default x_nat = 0
+default x_mon = 500
+default collided = False
+
+screen collision:
+    
+    add "nata":
+        xpos x_nat yalign 1.0 zoom 0.75
+    
+    add "monb":
+        xpos x_mon yalign 1.0 zoom 0.75
+    
+    if collided == False:
+        if x_nat < 125:
+            timer 0.01 action SetVariable("x_nat", x_nat+2), SetVariable("x_mon", x_mon-2) repeat True
+        else:
+            timer 0.001 action SetVariable("collided", True)
+    else:
+        timer 0.01 action SetVariable("x_nat", x_nat-4), SetVariable("x_mon", x_mon+4) repeat True
+    
+
+default time = 0
+default yyy = False
+
+screen music_dur():
+    
+    python:
+        time = renpy.music.get_pos(channel=u'sound')
+    
+    text "Duration = [time]":
+        color "#fff"
+    
+    timer 0.1 action Play("music", "<from 5>Daylight.ogg", selected=None)
+    
+    #timer 0.03 action renpy.restart_interaction repeat True
+
 label start:
+
+    play sound "Mysterious_Noise.mp3"
 
     pause
     
-    show screen mov
+    #show screen apaya
+    
+    # Simulate
+    #show mouth:
+    #    xpos 0
+    #    linear 2.0 xpos 720
+    
+    #show screen collision
+    
+    show screen music_dur
     
     pause
     
-    hide screen mov
+    "[time]"
+    
+    #hide screen apaya
+    
+    #hide screen collision
+    
+    hide screen music_dur
     
     pause
     
     return
-
-
+    
+    
 
 
 
