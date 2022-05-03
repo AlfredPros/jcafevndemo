@@ -351,7 +351,26 @@ screen music_dur():
     
     #timer 0.03 action renpy.restart_interaction repeat True
 
+# Character Callbacks example
+init python:
+    def beepy_voice(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        if event == "show_done":
+            renpy.sound.play("SayoText.ogg", loop=True)
+        elif event == "slow_done":
+            renpy.sound.stop()
+
+define pike = Character("Christopher Pike", callback=beepy_voice)
+
 label start:
+    
+    ""
+    
+    pike "So, hanging out on Talos IV, minding my own business, when..."
+    
+    ""
 
     play sound "Mysterious_Noise.mp3"
 
