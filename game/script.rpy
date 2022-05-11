@@ -364,13 +364,94 @@ init python:
 
 define pike = Character("Christopher Pike", callback=beepy_voice)
 
+
+
+
 label start:
     
-    ""
+    scene rip
     
-    pike "So, hanging out on Talos IV, minding my own business, when..."
+    pause
     
-    ""
+    camera:
+        subpixel True
+        align(0.4, 0.4)
+        ease 2.5 zoom 1.6
+        ease 3.0 xalign 1.0
+        ease 2.5 zoom 1.0
+    
+    pause
+    
+    scene black
+    
+    pause
+    
+    camera:
+        perspective True subpixel True
+        zoom 1.0 ypos 360 xpos 1400
+        ease 2.0 zoom 1.2 ypos 480
+        ease 4.0 xpos 1820 ypos 420
+        ease 2.0 ypos 360 xpos 1320 zoom 1.0
+    
+    scene bg1:
+        align (0.5, 1.0) zpos 200
+    
+    show natc:
+        align(0.25, 1.0) zoom 0.5 zpos 300
+        
+    show monb:
+        align(0.75, 1.0) zoom 0.5 zpos 450
+        
+    pause
+    
+    return
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+label timed_based_screen:
 
     play sound "Mysterious_Noise.mp3"
 
@@ -402,47 +483,6 @@ label start:
     return
     
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 label ctb_stuffs:
     
