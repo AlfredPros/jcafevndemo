@@ -365,42 +365,85 @@ init python:
 define pike = Character("Christopher Pike", callback=beepy_voice)
 
 
+image reap:
+    choice:
+        "ripa_a"
+        pause 0.1
+        "ripa_b"
+        pause 0.1
+        "ripa_c"
+        pause 0.1
+        "ripa_d"
+        pause 0.1
+        "ripa_e"
+        pause 0.1
+        
+        choice:
+            "ripab_a"
+            pause 0.1
+            "ripab_b"
+            pause 0.1
+        choice:
+            pass
+        choice:
+            pass
+        
+    choice:
+        "ripb_a"
+        pause 0.1
+        "ripb_b"
+        pause 0.1
+        "ripb_c"
+        pause 0.1
+        "ripb_d"
+        pause 0.1
+        "ripb_e"
+        pause 0.1
+        
+        choice:
+            "ripbb_a"
+            pause 0.1
+            "ripbb_b"
+            pause 0.1
+        choice:
+            pass
+        choice:
+            pass
 
+    repeat
 
 label start:
     
-    scene rip
+    $ quick_menu = False
     
-    pause
+    scene reap
     
     camera:
         subpixel True
-        align(0.4, 0.4)
-        ease 2.5 zoom 1.6
-        ease 3.0 xalign 1.0
-        ease 2.5 zoom 1.0
-    
-    pause
-    
-    scene black
+        zoom 1.5 align (0.4, 0.9)
+        ease 3.0 align (0.6, 0.2)
+        ease 2.0 zoom 1.0
     
     pause
     
     camera:
-        perspective True subpixel True
-        zoom 1.0 ypos 360 xpos 1400
-        ease 2.0 zoom 1.2 ypos 480
-        ease 4.0 xpos 1820 ypos 420
-        ease 2.0 ypos 360 xpos 1320 zoom 1.0
+        zoom 1.0 align(0.0, 0.0)
+        perspective True gl_depth True pos(0, 0) subpixel True
+        ease 2.0 zoom 1.4 ypos 250
+        ease 2.0 pos(400, 150) rotate 10
+        ease 2.0 zoom 1.0 pos(70, 40) rotate 0
+        
     
     scene bg1:
-        align (0.5, 1.0) zpos 200
+        zpos 125
     
     show natc:
-        align(0.25, 1.0) zoom 0.5 zpos 300
-        
+        zoom 0.5 align(0.25, 1.0)
+        zpos 250
+    
     show monb:
-        align(0.75, 1.0) zoom 0.5 zpos 450
+        zoom 0.5 align(0.75, 1.0)
+        zpos 400
         
     pause
     
@@ -448,6 +491,49 @@ label start:
     
     
     
+    
+    
+    
+
+
+label before_frame_by_frame:
+    
+    scene rip
+    
+    pause
+    
+    camera:
+        subpixel True
+        align(0.4, 0.4)
+        ease 2.5 zoom 1.6
+        ease 3.0 xalign 1.0
+        ease 2.5 zoom 1.0
+    
+    pause
+    
+    scene black
+    
+    pause
+    
+    camera:
+        perspective True subpixel True
+        zoom 1.0 ypos 360 xpos 1400
+        ease 2.0 zoom 1.2 ypos 480
+        ease 4.0 xpos 1820 ypos 420
+        ease 2.0 ypos 360 xpos 1320 zoom 1.0
+    
+    scene bg1:
+        align (0.5, 1.0) zpos 200
+    
+    show natc:
+        align(0.25, 1.0) zoom 0.5 zpos 300
+        
+    show monb:
+        align(0.75, 1.0) zoom 0.5 zpos 450
+        
+    pause
+    
+    return
     
     
     
