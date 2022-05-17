@@ -99,8 +99,22 @@ screen ctb():
         timer 12.0 action Hide("ctb")
 
    
+   
+style poem_text_ex:
+    xsize 650
+    size 52
+    font "nnb_poem.otf"
+    pos(300, 60)
+    justify True
+   
+screen style_ex():
     
-
+    add "poem":
+        xalign 0.5
+        
+    text "Lorem ipsum dolor sit amet. An Intentionally long text to show that this text is justified! Oh, hi there!\n\n{vspace=33}Just Monika.\n[[play \"bgm005.ogg\"]\n\n\nTomorrow is the last class.\nGood luck and see you tomorrow!":
+        style "poem_text_ex"
+    
 
 
 

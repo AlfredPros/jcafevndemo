@@ -411,41 +411,26 @@ image reap:
             pass
 
     repeat
+    
+    
+
+
 
 label start:
     
     $ quick_menu = False
     
-    scene reap
+    scene bg1
     
-    camera:
-        subpixel True
-        zoom 1.5 align (0.4, 0.9)
-        ease 3.0 align (0.6, 0.2)
-        ease 2.0 zoom 1.0
+    ""
+    window hide
+    
+    show screen style_ex
     
     pause
     
-    camera:
-        zoom 1.0 align(0.0, 0.0)
-        perspective True gl_depth True pos(0, 0) subpixel True
-        ease 2.0 zoom 1.4 ypos 250
-        ease 2.0 pos(400, 150) rotate 10
-        ease 2.0 zoom 1.0 pos(70, 40) rotate 0
-        
-    
-    scene bg1:
-        zpos 125
-    
-    show natc:
-        zoom 0.5 align(0.25, 1.0)
-        zpos 250
-    
-    show monb:
-        zoom 0.5 align(0.75, 1.0)
-        zpos 400
-        
-    pause
+    window show
+    ""
     
     return
     
@@ -494,7 +479,48 @@ label start:
     
     
     
+label fbf_anim:
 
+    $ quick_menu = False
+    
+    scene reap
+    
+    camera:
+        subpixel True
+        zoom 1.5 align (0.4, 0.9)
+        ease 3.0 align (0.6, 0.2)
+        ease 2.0 zoom 1.0
+    
+    pause
+    
+    scene black
+    
+    pause 
+    
+    camera:
+        zoom 1.0 align(0.0, 0.0)
+        perspective True gl_depth True pos(0, 0) subpixel True
+        ease 2.0 zoom 1.4 ypos 250
+        ease 2.0 pos(400, 150) rotate 10
+        ease 2.0 zoom 1.0 pos(70, 40) rotate 0
+        
+    
+    scene bg1:
+        zpos 125
+    
+    show natc:
+        zoom 0.5 align(0.25, 1.0)
+        zpos 250
+    
+    show monb:
+        zoom 0.5 align(0.75, 1.0)
+        zpos 400
+        
+    pause
+    
+    return
+    
+    
 
 label before_frame_by_frame:
     
