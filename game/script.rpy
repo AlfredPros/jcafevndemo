@@ -412,25 +412,95 @@ image reap:
 
     repeat
     
+
+style text_poem:
+    xsize 700
+    text_align 0.0
+    justify True
+    font "nnb_poem.otf"
+    size 50
+    pos(300, 75)
+    slow_cps True
+    outlines [ (absolute(1), "#f55", absolute(1), absolute(1)), (absolute(1), "#5f5", absolute(0), absolute(-1)), (absolute(1), "#55f", absolute(-1), absolute(1)) ]
+    color "#fff0"
+    kerning 5
+
+default uwu = True
+
+screen poem():
     
-
-
+    modal True
+    
+    add "poem":
+        xalign 0.5
+        
+    text "Thank you everyone!":
+        pos (350, 50)
+        size 50
+    
+    bar value Preference("text speed"):
+        xsize 552
+        ysize 57
+        pos(350, 100)
+        left_bar "gui/volume_fill.png"
+        right_bar "gui/volume_empty.png"
+        thumb "gui/volume_knob.png"
+        left_gutter -10
+        right_gutter -10
+        thumb_offset 30
+        
+    textbutton "Go Home Go Bed":
+        area(350, 300, 545, 80)
+        
+        text_color "#999"
+        text_bold True
+        text_size 40
+        text_hover_color "#368CD6"
+        text_selected_idle_color "#000"
+        text_selected_hover_color "#D0D300"
+        text_insensitive_color "#D100AE"
+        text_selected_insensitive_color "#00CE3A"
+        text_xalign 0.5
+        
+        idle_background "gui/choice_idle_background.png"
+        hover_background "gui/choice_hover_background.png"
+        
+        sensitive uwu == True
+        
+        action Preference("skip", "toggle")
+        
+    textbutton "Toggle Variable":
+        area(350, 400, 545, 80)
+        
+        text_color "#999"
+        text_bold True
+        text_size 40
+        text_hover_color "#368CD6"
+        text_selected_idle_color "#000"
+        text_selected_hover_color "#D0D300"
+        text_xalign 0.5
+        
+        idle_background "gui/choice_idle_background.png"
+        hover_background "gui/choice_hover_background.png"
+        
+        action ToggleVariable("uwu")
+    
 
 label start:
     
-    $ quick_menu = False
-    
-    scene bg1
-    
-    ""
+    "asdasd"
     window hide
     
-    show screen style_ex
+    show screen poem
     
     pause
     
+    hide screen poem
+    
     window show
-    ""
+    "asdasd"
+    
+    "asdadasd"
     
     return
     
